@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calendar Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CHANGE ME">
+    <meta name="keywords" content="CHANGE ME">
+    <meta name="author" content="CHANGE ME">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Custom CSS End -->
+</head>
+
+<body>
+    <h3>Calendar Viewer</h3>
+    <!-- If the A3 stub is running and testCalSimpleUTC.ics exists in the uploads/ directory on the server, then clicking on the link below will download it from the server.<br>
+    <a href="/uploads/testCalSimpleUTC.ics">testCalSimpleUTC.ics</a>
+    <hr>
+    <div id="blah">I am blah</div>
+    <hr>
+    <form ref='someform'
+          id='someform'>
+          <div class="form-group">
+                <label for="entryBox">Last Name</label>
+                <input type="text" class="form-control" id="entryBox" value="Value" placeholder="Placeholder">
+            </div>
+        <div class="form-group">
+            <input type='submit' class="btn btn-secondary">
+        </div>
+    </form> -->
+
+<!---TESTTTTTTTTTTTTTTTTTTTT-->
+
+<!---TESTTTTTTTTTTTTTTTTTTTT-->
+
+    <!-- STATUS PANEL -->
+    <!-- <form ref='statuspanelform'
+          id='statuspanelform'>
+          <div class="form-group">
+            <div class="card">
+              <div class="card-header">
+                Status Panel
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Status Panel</h5>
+
+                <div style="height:300px;overflow:auto;" class ="table-responsive">
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Messages</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Nothing works</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">A3 assignment due 20th march</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">bruh.</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Button needs to clear table</th>
+                      </tr>
+                      <tr>
+                        <th scope="row"> Used to display various status messages</th>
+                      </tr>
+                      <tr>
+                        <th scope="row"> This panel is scrollable both horizontally and vetically</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+                <!-- <label for="entryBox">Last Name</label>
+                <input type="text" class="form-control" id="entryBox" value="Value" placeholder="Placeholder"> -->
+            <!-- <div class="form-group">
+              <button type="button" class="btn btn-primary btn-sm">Clear</button>
+
+              <!-- <input type='submit' class="btn btn-secondary">Clear</input> -->
+            <!-- </div>
+          </div>
+        </div>
+    </form> -->
+
+    <div class="card">
+      <div class="card-header">
+        Status Panel
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Status Panel</h5>
+
+        <div id = "stdiv" style="height:300px;overflow:auto;" class ="table-responsive">
+          <table id="statusTable" class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Messages</th>
+              </tr>
+            </thead>
+            <tbody id ="statusMessages">
+              <!-- <tr>
+                <th scope="row">Nothing works</th>
+              </tr>
+            -->
+            </tbody>
+          </table>
+        </div>
+        <button id="clearButton" type="button" class="btn btn-primary btn-sm">Clear</button>
+      </div>
+    </div>
+    <!-- FILE LOG -->
+    <div class="card">
+      <div class="card-header">
+        File Log Panel
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">File Log Panel</h5>
+        <div style="height:500px;overflow:auto;" class ="table-responsive">
+          <table id = "filelogTable" class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">File name<br>(click to download)</th>
+                <th scope="col">Version</th>
+                <th scope="col">Product ID </th>
+                <th scope="col">Number of Events </th>
+                <th scope="col">Number of Properties </th>
+              </tr>
+            </thead>
+            <!-- <tr id="uploadTR">
+            </tr> -->
+            <tbody>
+              <!-- <tr>
+                <th scope="row">
+                  <a href="/uploads/testCalSimpleUTC.ics">testCalSimpleUTC.ics</a>
+                </th>
+                <td>2.0</td>
+                <td>-//hacksw/handcal//NONSGML v1.0//EN</td>
+                <td>1</td>
+                <td>2</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+        <!-- <form>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Upload file</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </form> -->
+        <form id = "uploadform" enctype = "multipart/form-data" method = "post" action="/upload">
+          <input type="submit" value="Upload" >
+          <input name = "uploadFile" type = "file" required>
+        </form>
+      </div>
+    </div>
+
+      <!-- Calendar View Panel -->
+      <div class="card">
+        <div class="card-header">
+          Calendar View Panel
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Calendar View Panel</h5>
+          <!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Calenders
+            </button> -->
+            <!-- <div id="calDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+            <!-- <div id="calDropdown" > -->
+              <!-- <a class="dropdown-item" href="#">testCalSimpleUTC.ics</a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+          <select class="custom-select mr-sm-2" id="calDropdown">
+            <option selected>Choose Calendar...</option>
+          </select>
+          <div style="height:500px;overflow:auto;" class ="table-responsive">
+            <table id="cvp" class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Event No</th>
+                  <th scope="col">Start date</th>
+                  <th scope="col">Start time</th>
+                  <th scope="col">Summary</th>
+                  <th scope="col">Props </th>
+                  <th scope="col">Alarms</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr>
+                  <th scope="row">1</th>
+                  <td>1954/02/03</td>
+                  <td>12:30:12 (UTC)</td>
+                  <td>Do taxes</td>
+                  <td>4</td>
+                  <td>2</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATE CALENDAR -->
+
+
+        <div class="card">
+          <div class="card-header">
+            Create Calendar
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Create Calendar</h5>
+
+            <form>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="CCfilename">File name</label>
+                  <input type="text" class="form-control" id="CCfilename" placeholder="Filename" value="" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="CCversion">Version</label>
+                  <input type="text" class="form-control" id="CCversion" placeholder="Version" value="" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="CCprodid">Product ID</label>
+                  <input type="text" class="form-control" id="CCprodid" placeholder="Product ID" value="" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="CCeventuid">Event UID</label>
+                  <input type="text" class="form-control" id="CCeventuid" placeholder="UID" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="CCeventsummary">Event Summary</label>
+                  <input type="text" class="form-control" id="CCeventsummary" placeholder="Summary" >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label for="eventSD">Event Start date:</label>
+                  <input type="date" id="eventSD" name="trip-start" value="2019-03-22" min="2019-01-01" max="3019-12-31" required>
+
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="eventST">Event Start Time</label>
+                  <input type="time" id="eventST" name="appt" min="0:00" max="24:00" required>
+                  <label for="eventUTC">UTC</label>
+                  <input type="checkbox" id="eventUTC" name="UTC" value="utc">
+                </div>
+              </div>
+
+              <button id="CreateCalButton" class="btn btn-primary" type="button">Create Calendar</button>
+              <!-- <button id="clearButton" type="button" class="btn btn-primary btn-sm">Clear</button> -->
+            </form>
+
+          </div>
+        </div>
+
+        <!-- CREATE EVENT -->
+
+
+          <div class="card">
+            <div class="card-header">
+              Create Event
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Create Event</h5>
+
+
+                <form>
+                  <select class="custom-select mr-sm-2" id="eventDropdown">
+                    <option selected>Filename (required)</option>
+                  </select>
+                  <!-- <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label for="validationDefault01">File name</label>
+                      <input type="text" class="form-control" id="validationDefault01" placeholder="File name" value="" required>
+                    </div>
+                  </div> -->
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="CEeventuid">Event UID</label>
+                      <input type="text" class="form-control" id="CEeventuid" placeholder="UID" required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="CEeventsummary">Event Summary</label>
+                      <input type="text" class="form-control" id="CEeventsummary" placeholder="Summary" >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                      <label for="CEeventSD">Event Start date:</label>
+                      <input type="date" id="CEeventSD" name="trip-start" value="2019-03-22" min="2019-01-01" max="3019-12-31" required>
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="CEeventST">Event Start Time</label>
+                      <input type="time" id="CEeventST" name="appt" min="0:00" max="24:00" required>
+                      <label for="CEeventUTC">UTC</label>
+                      <input type="checkbox" id="CEeventUTC" name="UTC" value="utc">
+                    </div>
+                  </div>
+
+
+                  <button id="CreateEventButton" class="btn btn-primary" type="button">Add Event</button>
+
+                </form>
+
+
+            </div>
+          </div>
+
+          <!-- ASSIGNMENT 4 FUNCITONALITY------------------------------------------------------------------------------------------------------->
+
+          <!-- <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          </div> -->
+
+          <div id="loginModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Database connection</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Connection unsuccessful. Enter valid credentials</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+               Database functionality
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"> Database functionality</h5>
+              <form>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="dbusername">Username</label>
+                    <input type="text" class="form-control" id="dbusername" placeholder="username" value="" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="dbpassword">Password</label>
+                    <input type="password" class="form-control" id="dbpassword" placeholder="Password">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="dbname">Database Name</label>
+                    <input type="text" class="form-control" id="dbname" placeholder="database name" value="" required>
+                  </div>
+                </div>
+                <!-- <button type="submit" class="btn btn-primary">Data base Login</button> -->
+                <button id="dbButton" class="btn btn-primary" type="button">Database login</button>
+              </form>
+              <br>
+                <button id="storedbButton" type="button" class="btn btn-secondary" disabled>Store All Files</button>
+               <button id="cleardbButton" type="button" class="btn btn-secondary" disabled>Clear All Data</button>
+               <button id="displaydbButton" type="button" class="btn btn-secondary" disabled>Display DB Status</button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Standard Queries</h5>
+              <form>
+                <!-- Q1 -->
+                <div class="form-row">
+                  <div class="col">
+                    <p>1. Display all events sorted by start date</p>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton1" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                  </div>
+                </div>
+                <!-- Q2 -->
+                <div class="form-row">
+                  <div class="col">
+                    <p>2.  Display the events from</p>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="q2filename" placeholder="Filename" value="" required>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton2" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                    <!-- <input type="text" class="form-control" placeholder="Last name"> -->
+                  </div>
+                </div>
+                <!-- Q3 -->
+                <div class="form-row">
+                  <div class="col">
+                    <p>3. Display all events that might conflict with each other, because they happen at the same time</p>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton3" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                    <!-- <input type="text" class="form-control" placeholder="Last name"> -->
+                  </div>
+                </div>
+                <!-- Q4 -->
+                <div class="form-row">
+                  <div class="col">
+                    <p>4. Number of upcoming Events </p>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton4" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                  </div>
+                </div>
+                <!-- Q5 -->
+                <div class="form-row">
+                  <div class="col">
+                    <p>5. Display all past events.</p>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton5" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <p>6. Display the alarms with AUDIO action:</p>
+                  </div>
+                  <div class="col">
+                    <button id="queryButton6" type="button" class="btn btn-secondary" disabled>Execute Query</button>
+                  </div>
+                </div>
+              </form>
+              <div id = "qtdiv" style="height:300px;overflow:auto;" class ="table-responsive">
+                <table id="queryTable" class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Query Results</th>
+                    </tr>
+                  </thead>
+                  <tbody id ="queryMessages">
+                    <!-- <tr>
+                      <th scope="row">Nothing works</th>
+                    </tr>
+                  -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div><!-- end of card body -->
+
+          </div>
+
+              <!-- Button trigger modal -->
+
+
+    <!-- Leave me at the bottom of body -->
+    <script src="/index.js"></script>
+</body>
+</html>
